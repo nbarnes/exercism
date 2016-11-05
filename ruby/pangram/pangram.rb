@@ -1,9 +1,14 @@
-require 'Set'
 
 class Pangram
 
-  def self.is_pangram?(string)
-    return Set.new('a'..'z').subtract(string.downcase.chars).size == 0
+  ALPHABET = ('a'..'z').to_a
+
+  def self.is_pangram?(sentence)
+    pangram?(sentence)
+  end
+
+  def self.pangram?(sentence)
+    (ALPHABET - sentence.downcase.chars).size.zero?
   end
 
 end
